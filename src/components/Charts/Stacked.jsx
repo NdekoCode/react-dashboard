@@ -1,3 +1,5 @@
 import React from "react";
 
-export const Stacked = () => <div>Stacked</div>;
+const Stacked = () => <div>Stacked</div>;
+
+export default Stacked;
