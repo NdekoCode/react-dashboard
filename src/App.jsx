@@ -4,11 +4,10 @@ import { FiSettings } from "react-icons/fi";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import { Navbar, Sidebar } from "./components/components";
-import { useToggle } from "./libs/hooks/basicsHooks";
 import routes from "./libs/routes/routes";
 
 function App() {
-  const [activeMenu, toggleActive] = useToggle(false);
+  const activeMenu = true;
 
   return (
     <div>
@@ -20,7 +19,7 @@ function App() {
                 type="button"
                 className="text-3xl p-3 hover:drop-shadow-xl rounded-full transition-colors text-white hover:bg-light-gray"
                 style={{ backgroundColor: "blue" }}
-                onClick={() => toggleActive()}
+                onClick={() => {}}
               >
                 <FiSettings />
               </button>

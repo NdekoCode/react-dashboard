@@ -3,7 +3,7 @@
     "browser": true,
     "es2021": true
   },
-  "extends": ["plugin:react/recommended", "airbnb"],
+  "extends": ["plugin:react/recommended", "airbnb", "prettier/react"],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -41,6 +41,13 @@
         "allow": ["_d", "_dh", "_h", "_id", "_m", "_n", "_t", "_text"]
       }
     ],
+    "no-confusing-arrow": [
+      "error",
+      { "allowParens": true, "onlyOneSimpleParam": true }
+    ],
+    "implicit-arrow-linebreak": "off",
+    // "react/jsx-curly-newline": "off",
+    "operator-linebreak": "off",
     "object-curly-newline": 0,
     "react/jsx-filename-extension": 0,
     "react/jsx-one-expression-per-line": 0,
