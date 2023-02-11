@@ -4,6 +4,7 @@ import { FiSettings } from "react-icons/fi";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import { useToggle } from "./libs/hooks/basicsHooks";
+import routes from "./libs/routes/routes";
 
 function App() {
   const [activeMenu, toggleActive] = useToggle(false);
@@ -39,6 +40,9 @@ function App() {
           </div>
           <div>
             <Routes>
+              {routes.map(({ path, component }, index) => (
+                <Route key={index} path={path} element={component} />
+              ))}
               <Route path="/" element="E-commerce" />
             </Routes>
           </div>
