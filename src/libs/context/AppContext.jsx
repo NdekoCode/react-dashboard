@@ -7,6 +7,7 @@ export const StateContextProvider = memo(({ children }) => {
   const [cart, toggleCart] = useToggle(false);
   const [userProfile, toggleUserProfile] = useToggle(false);
   const [notification, toggleUserNotification] = useToggle(false);
+  const [activeMenu, toggleMenu] = useToggle(true);
   const initialState = useMemo(
     () => ({
       chat,
@@ -17,8 +18,10 @@ export const StateContextProvider = memo(({ children }) => {
       toggleUserProfile,
       notification,
       toggleUserNotification,
+      activeMenu,
+      toggleMenu,
     }),
-    []
+    [activeMenu]
   );
   return (
     <StateContextInit.Provider value={initialState}>
