@@ -3,6 +3,7 @@ import React from "react";
 import { FiSettings } from "react-icons/fi";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
+import { Navbar, Sidebar } from "./components/components";
 import { useToggle } from "./libs/hooks/basicsHooks";
 import routes from "./libs/routes/routes";
 
@@ -27,7 +28,7 @@ function App() {
           </div>
           {activeMenu ? (
             <div className="w-72 sidebar fixed dark:bg-secondary-dark-bg bg-white">
-              Sidebar
+              <Sidebar />
             </div>
           ) : null}
           <div
@@ -35,7 +36,7 @@ function App() {
               ${activeMenu ? "md:ml-72" : "flex-2"}`}
           >
             <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full">
-              Navbar
+              <Navbar />
             </div>
           </div>
           <div>

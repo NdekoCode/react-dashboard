@@ -1,92 +1,112 @@
+import React from "react";
+import {
+  Area,
+  Bar,
+  Calendar,
+  ColorMapping,
+  ColorPicker,
+  Customers,
+  Ecommerce,
+  Editor,
+  Employees,
+  Financial,
+  Kanban,
+  Line,
+  Orders,
+  Pie,
+  Pyramid,
+  Stacked,
+} from "../../pages/pages";
+
 const routes = [
   // Dashboard
   {
     name: "e-commerce",
     path: "/",
-    component: "E-commerce",
+    component: <Ecommerce />,
   },
   {
     name: "",
     path: "/ecommerce",
-    component: "E-commerce",
+    component: <Ecommerce />,
   },
   // Pages
   {
     name: "pages",
     path: "/order",
-    component: "Order",
+    component: <Orders />,
   },
   {
     name: "Employees",
     path: "/employees",
-    component: "Employees",
+    component: <Employees />,
   },
   {
     name: "Customers",
     path: "/customers",
-    component: "Customers",
+    component: <Customers />,
   },
   //   Apps
   {
     name: "Kanban",
     path: "/kanban",
-    component: "Kanban",
+    component: <Kanban />,
   },
   {
     name: "Editor",
     path: "/editor",
-    component: "Editor",
+    component: <Editor />,
   },
   {
     name: "Calendar",
     path: "/calendar",
-    component: "Calendar",
+    component: <Calendar />,
   },
   {
     name: "Color",
     path: "/color-picker",
-    component: "ColorPicker",
+    component: <ColorPicker />,
   },
   //   Charts
   {
     name: "Line",
     path: "/line",
-    component: "Line",
+    component: <Line />,
   },
   {
     name: "Area",
     path: "/area",
-    component: "Area",
+    component: <Area />,
   },
   {
     name: "Bar",
     path: "/bar",
-    component: "Bar",
+    component: <Bar />,
   },
   {
     name: "Pie",
     path: "/pie",
-    component: "Pie",
+    component: <Pie />,
   },
   {
     name: "Financial",
     path: "/financial",
-    component: "Financial",
+    component: <Financial />,
   },
   {
     name: "ColorMapping",
     path: "/color-mapping",
-    component: "ColorMapping",
+    component: <ColorMapping />,
   },
   {
     name: "Pyramid",
     path: "/pyramid",
-    component: "Pyramid",
+    component: <Pyramid />,
   },
   {
     name: "Stacked",
     path: "/stacked",
-    component: "Stacked",
+    component: <Stacked />,
   },
 ];
 export default routes;
