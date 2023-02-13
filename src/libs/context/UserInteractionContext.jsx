@@ -1,22 +1,22 @@
-import { createContext, memo, useContext, useMemo } from "react";
-import { useToggle } from "../hooks/basicsHooks";
+import { createContext, memo, useContext, useMemo, useState } from "react";
 
 const UserStateInit = createContext();
-export const StateContextProvider = memo(({ children }) => {
-  const [chat, toggleChat] = useToggle(false);
-  const [cart, toggleCart] = useToggle(false);
-  const [userProfile, toggleUserProfile] = useToggle(false);
-  const [notification, toggleUserNotification] = useToggle(false);
+export const UserStateContextProvider = memo(({ children }) => {
+  const [userInteraction, setUserInteraction] = useState({
+    chat: false,
+    cart: false,
+    userProfile: false,
+    notification: false,
+  });
+  const toggleUserInteraction = (state) => {
+    if (Object.keys(userInteraction).includes(state)) {
+      setUserInteraction((d) => ({ [state]: !d[state] }));
+    }
+  };
   const initialState = useMemo(
     () => ({
-      chat,
-      toggleChat,
-      cart,
-      toggleCart,
-      userProfile,
-      toggleUserProfile,
-      notification,
-      toggleUserNotification,
+      userInteraction,
+      toggleUserInteraction,
     }),
     []
   );
@@ -26,5 +26,5 @@ export const StateContextProvider = memo(({ children }) => {
     </UserStateInit.Provider>
   );
 });
-export const StateContext = useContext(UserStateInit);
-export default StateContext;
+export const UserStateContext = () => useContext(UserStateInit);
+export default UserStateContext;
