@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import { Navbar, Sidebar } from "./components/components";
 import StateContext from "./libs/context/AppContext";
+import { UserStateContextProvider } from "./libs/context/UserInteractionContext";
 import routes from "./libs/routes/routes";
 
 function App() {
@@ -27,21 +28,19 @@ function App() {
             </TooltipComponent>
           </div>
           {activeMenu ? (
-            <div className="w-72 sidebar fixed dark:bg-secondary-dark-bg bg-white">
+            <div className="sweetX w-72 sidebar fixed dark:bg-secondary-dark-bg bg-white">
               <Sidebar />
             </div>
-          ) : (
-            <div className="w-0 dark:bg-secondary-dark-bg">
-              <Sidebar />
-            </div>
-          )}
+          ) : null}
           <div
             className={`dark:bg-main-bg bg-main-bg min-h-screen  w-full ${
               activeMenu ? "md:ml-72" : "flex-2"
             }`}
           >
             <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full">
-              <Navbar />
+              <UserStateContextProvider>
+                <Navbar />
+              </UserStateContextProvider>
             </div>
           </div>
           <div>

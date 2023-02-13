@@ -1,24 +1,42 @@
-import { createContext, memo, useContext, useMemo } from "react";
-import { useToggle } from "../hooks/basicsHooks";
+import { createContext, memo, useContext, useMemo, useState } from "react";
 
 const UserStateInit = createContext();
-export const StateContextProvider = memo(({ children }) => {
-  const [chat, toggleChat] = useToggle(false);
-  const [cart, toggleCart] = useToggle(false);
-  const [userProfile, toggleUserProfile] = useToggle(false);
-  const [notification, toggleUserNotification] = useToggle(false);
+export const UserStateContextProvider = memo(({ children }) => {
+  const [isClicked, setIsClicked] = useState({
+    chat: false,
+    cart: false,
+    userProfile: false,
+    notification: false,
+  });
+
+  // Va permettre de de desactiver de maniere independante les modales d'interactions utilisateurs.
+  const toggleIsClicked = (state, value = null, dependant = true) => {
+    if (Object.keys(isClicked).includes(state)) {
+      if (typeof value === "boolean") {
+        setIsClicked((d) => ({ ...d, [state]: value }));
+      } else {
+        if (dependant) {
+          setIsClicked((d) => ({
+            ...{
+              chat: false,
+              cart: false,
+              userProfile: false,
+              notification: false,
+            },
+            [state]: !d[state],
+          }));
+        } else {
+          setIsClicked((d) => ({
+            ...d,
+            [state]: !d[state],
+          }));
+        }
+      }
+    }
+  };
   const initialState = useMemo(
-    () => ({
-      chat,
-      toggleChat,
-      cart,
-      toggleCart,
-      userProfile,
-      toggleUserProfile,
-      notification,
-      toggleUserNotification,
-    }),
-    []
+    () => ({ isClicked, toggleIsClicked }),
+    [isClicked]
   );
   return (
     <UserStateInit.Provider value={initialState}>
@@ -26,5 +44,5 @@ export const StateContextProvider = memo(({ children }) => {
     </UserStateInit.Provider>
   );
 });
-export const StateContext = useContext(UserStateInit);
-export default StateContext;
+export const UserStateContext = () => useContext(UserStateInit);
+export default UserStateContext;
