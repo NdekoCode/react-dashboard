@@ -14,7 +14,7 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <div className="flex relative dark:bg-main-dark-bg">
+        <section className="flex relative dark:bg-main-dark-bg">
           <div className="fixed right-4 bottom-4" style={{ zIndex: "1000" }}>
             <TooltipComponent content="settng" position="Top">
               <button
@@ -32,25 +32,30 @@ function App() {
               <Sidebar />
             </div>
           ) : null}
-          <div
+          <section
             className={`dark:bg-main-bg bg-main-bg min-h-screen  w-full ${
               activeMenu ? "md:ml-72" : "flex-2"
             }`}
           >
-            <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full">
+            {/* Navbar content START */}
+            <header className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full">
               <UserStateContextProvider>
                 <Navbar />
               </UserStateContextProvider>
-            </div>
-          </div>
-          <div>
-            <Routes>
-              {routes.map(({ path, component }, index) => (
-                <Route key={index} path={path} element={component} />
-              ))}
-            </Routes>
-          </div>
-        </div>
+            </header>
+            {/* Navbar content END */}
+
+            {/* Main content START */}
+            <main>
+              <Routes>
+                {routes.map(({ path, component }, index) => (
+                  <Route key={index} path={path} element={component} />
+                ))}
+              </Routes>
+            </main>
+            {/* Main content END */}
+          </section>
+        </section>
       </BrowserRouter>
     </div>
   );
