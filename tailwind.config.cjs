@@ -1,6 +1,15 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  // Pour la generation des classes dynamic
+  safelist: [
+    "text-2xl",
+    "text-3xl",
+    {
+      pattern: /text-(red|green|blue)-(100|200|300|500|600|700|800|900)/,
+      variants: ["lg", "hover", "focus", "lg:hover"],
+    },
+  ],
   darkMode: "class",
   theme: {
     fontFamily: {
