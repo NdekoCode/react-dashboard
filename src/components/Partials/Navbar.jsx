@@ -3,6 +3,7 @@ import React from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { BsChatLeft } from "react-icons/bs";
 import { FiShoppingCart } from "react-icons/fi";
+import { MdKeyboardArrowDown } from "react-icons/md";
 import { RiNotification3Line } from "react-icons/ri";
 import StateContext from "../../libs/context/AppContext";
 import UserStateContext from "../../libs/context/UserInteractionContext";
@@ -38,9 +39,6 @@ const Navbar = () => {
   const { toggleMenu } = StateContext();
   const { isClicked, toggleIsClicked } = UserStateContext();
   const { chat, cart, userProfile, notification } = isClicked;
-  const handleClick = (value) => {
-    toggleIsClicked(value);
-  };
 
   return (
     <nav className="flex justify-between p-2 md:ml-6 md:mr-6 relative">
@@ -53,38 +51,39 @@ const Navbar = () => {
       <div className="flex">
         <NavButton
           title="Cart"
-          customFunc={() => handleClick("cart")}
+          customFunc={() => toggleIsClicked("cart")}
           color="blue"
           icon={<FiShoppingCart />}
         />
         <NavButton
           title="Chat"
-          customFunc={() => handleClick("chat")}
+          customFunc={() => toggleIsClicked("chat")}
           color="blue"
           dotColor="#03c9d7"
           icon={<BsChatLeft />}
         />
         <NavButton
           title="Notification"
-          customFunc={() => handleClick("notification")}
+          customFunc={() => toggleIsClicked("notification")}
           color="blue"
           dotColor="#03c9d7"
           icon={<RiNotification3Line />}
         />
         <TooltipComponent content="Profile" position="BottomCenter">
           <div
-            className="flex items-center cursor-pointer p-1 gap-2 hover:bg-light-gray rounded-lg"
-            onClick={() => handleClick("userProfile")}
+            className="flex items-center cursor-pointer p-1 gap-2 hover:bg-light-gray rounded-lg text-14 text-gray-400"
+            onClick={() => toggleIsClicked("userProfile")}
           >
             <img
               src={avatar}
               className="rounded-full object-cover w-8 h-8"
               alt="User profile"
             />
-            <p className="text-14 text-gray-400">
+            <p>
               <span>Hi, </span>
               <span className="ml-1 font-bold">NdekoCode</span>
             </p>
+            <MdKeyboardArrowDown />
           </div>
         </TooltipComponent>
         {chat && <Chat />}

@@ -1,28 +1,33 @@
-import { createContext, memo, useContext, useMemo } from "react";
-import { useToggle } from "../hooks/basicsHooks";
+import {
+  createContext,
+  memo,
+  useContext,
+  useLayoutEffect,
+  useMemo,
+} from "react";
+import { useResize, useToggle } from "../hooks/basicsHooks";
 
 const StateContextInit = createContext();
 export const StateContextProvider = memo(({ children }) => {
-  const [chat, toggleChat] = useToggle(false);
-  const [cart, toggleCart] = useToggle(false);
-  const [userProfile, toggleUserProfile] = useToggle(false);
-  const [notification, toggleUserNotification] = useToggle(false);
   const [activeMenu, toggleMenu] = useToggle(true);
+  const [screenSize, handleSize] = useResize();
   const initialState = useMemo(
     () => ({
-      chat,
-      toggleChat,
-      cart,
-      toggleCart,
-      userProfile,
-      toggleUserProfile,
-      notification,
-      toggleUserNotification,
       activeMenu,
       toggleMenu,
+      screenSize,
+      handleSize,
     }),
-    [activeMenu]
+    [activeMenu, screenSize]
   );
+  useLayoutEffect(() => {
+    toggleMenu(true);
+    if (screenSize <= 900) {
+      toggleMenu(false);
+    } else {
+      toggleMenu(true);
+    }
+  }, [screenSize]);
   return (
     <StateContextInit.Provider value={initialState}>
       {children}
