@@ -1,6 +1,7 @@
 import {
   createContext,
   memo,
+  useCallback,
   useContext,
   useLayoutEffect,
   useMemo,
@@ -11,12 +12,18 @@ const StateContextInit = createContext();
 export const StateContextProvider = memo(({ children }) => {
   const [activeMenu, toggleMenu] = useToggle(true);
   const [screenSize, handleSize] = useResize();
+  const handleCloseSideBar = useCallback(() => {
+    if (activeMenu && screenSize <= 900) {
+      toggleMenu(false);
+    }
+  });
   const initialState = useMemo(
     () => ({
       activeMenu,
       toggleMenu,
       screenSize,
       handleSize,
+      handleCloseSideBar,
     }),
     [activeMenu, screenSize]
   );
@@ -28,6 +35,7 @@ export const StateContextProvider = memo(({ children }) => {
       toggleMenu(true);
     }
   }, [screenSize]);
+
   return (
     <StateContextInit.Provider value={initialState}>
       {children}

@@ -9,7 +9,7 @@ import StateContext from "../../libs/context/AppContext";
 import { links } from "../../libs/data/dummy";
 
 const Sidebar = () => {
-  const { toggleMenu } = StateContext();
+  const { handleCloseSideBar } = StateContext();
   const activeLink =
     "flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-white text-md m-2 transition-colors bg-gray-900";
   const normalLink =
@@ -19,7 +19,7 @@ const Sidebar = () => {
       <div className="flex justify-between items-center">
         <Link
           to="/"
-          onClick={() => toggleMenu(false)}
+          onClick={handleCloseSideBar}
           className="items-center mt-4 ml-3 flex text-slate-900 text-xl font-extrabold tracking-tighter dark:text-white"
         >
           <SiShopware className="text-3xl" />
@@ -28,7 +28,7 @@ const Sidebar = () => {
         <TooltipComponent content="Menu" position="bottomCenter">
           <button
             type="button"
-            onClick={toggleMenu}
+            onClick={handleCloseSideBar}
             className="text-xl rounded-full p-3 hover:bg=light-gray mt-4 block md:hidden"
           >
             <MdOutlineCancel />
@@ -44,7 +44,7 @@ const Sidebar = () => {
                 <li key={key}>
                   <NavLink
                     to={`/${item.name}`}
-                    onClick={() => {}}
+                    onClick={handleCloseSideBar}
                     className={(nav) =>
                       nav.isActive ? activeLink : normalLink
                     }
