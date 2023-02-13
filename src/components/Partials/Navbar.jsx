@@ -7,6 +7,10 @@ import { RiNotification3Line } from "react-icons/ri";
 import StateContext from "../../libs/context/AppContext";
 import UserStateContext from "../../libs/context/UserInteractionContext";
 import avatar from "../../libs/data/images/avatar.jpg";
+import Cart from "./Cart";
+import Chat from "./Chat";
+import Notification from "./Notification";
+import UserProfile from "./UserProfile";
 const NavButton = ({ title, customFunc, icon, color, dotColor }) => {
   return (
     <TooltipComponent
@@ -32,7 +36,8 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => {
 };
 const Navbar = () => {
   const { toggleMenu } = StateContext();
-  const { toggleIsClicked } = UserStateContext();
+  const { isClicked, toggleIsClicked } = UserStateContext();
+  const { chat, cart, userProfile, notification } = isClicked;
   const handleClick = (value) => {
     toggleIsClicked(value);
   };
@@ -82,6 +87,10 @@ const Navbar = () => {
             </p>
           </div>
         </TooltipComponent>
+        {chat && <Chat />}
+        {notification && <Notification />}
+        {userProfile && <UserProfile />}
+        {cart && <Cart />}
       </div>
     </nav>
   );

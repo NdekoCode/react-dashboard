@@ -8,10 +8,30 @@ export const UserStateContextProvider = memo(({ children }) => {
     userProfile: false,
     notification: false,
   });
-  const toggleIsClicked = (state) => {
+
+  // Va permettre de de desactiver de maniere independante les modales d'interactions utilisateurs.
+  const toggleIsClicked = (state, value = null, independant = false) => {
     if (Object.keys(isClicked).includes(state)) {
-      setIsClicked((d) => ({ ...d, [state]: !d[state] }));
-      console.log(isClicked);
+      if (typeof value === "boolean") {
+        setIsClicked((d) => ({ ...d, [state]: value }));
+      } else {
+        if (independant) {
+          setIsClicked((d) => ({
+            ...{
+              chat: false,
+              cart: false,
+              userProfile: false,
+              notification: false,
+            },
+            [state]: !d[state],
+          }));
+        } else {
+          setIsClicked((d) => ({
+            ...d,
+            [state]: !d[state],
+          }));
+        }
+      }
     }
   };
   const initialState = useMemo(
