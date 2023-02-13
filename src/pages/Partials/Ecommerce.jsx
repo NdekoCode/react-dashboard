@@ -6,7 +6,7 @@ function Ecommerce() {
   return (
     <div className="mt-5">
       <div className="flex flex-wrap lg:flex-nowrap justify-center">
-        <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-44 rounded-xl w-full lg:w-80 p-8 pt-9 m-3 bg-hero-pattern bg-no-repeat bg-cover bg-center">
+        <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-44 rounded-xl w-full lg:w-80 p-5  m-3 bg-hero-pattern bg-no-repeat bg-cover bg-center">
           <div className="flex justify-between items-center">
             <div>
               <p className="font-bold text-gray-400">Earnings</p>
@@ -25,11 +25,11 @@ function Ecommerce() {
             </Button>
           </div>
         </div>
-        <div className="flex m-3 flex-wrap justify-center gap-1 items-center">
+        <div className="flex m-3 flex-wrap justify-center gap-2 items-center">
           {earningData.map((item, index) => (
             <div
               key={index}
-              className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg md:w-56 p-9 rounded-2xl"
+              className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg md:w-44 p-8 rounded-2xl"
             >
               <button
                 type="button"

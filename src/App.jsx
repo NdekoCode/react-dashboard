@@ -28,13 +28,13 @@ function App() {
             </TooltipComponent>
           </div>
           {activeMenu ? (
-            <div className="sweetX w-72 sidebar fixed dark:bg-secondary-dark-bg bg-white">
+            <div className="sweetX w-64 sidebar fixed dark:bg-secondary-dark-bg bg-white">
               <Sidebar />
             </div>
           ) : null}
           <section
             className={`dark:bg-main-bg bg-main-bg min-h-screen  w-full ${
-              activeMenu ? "md:ml-72" : "flex-2"
+              activeMenu ? "md:ml-64" : "flex-2"
             }`}
           >
             {/* Navbar content START */}
