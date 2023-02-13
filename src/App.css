@@ -53,3 +53,16 @@
 .e-input-group.e-control-wrapper.e-error:not(.e-float-icon-left) {
   border: none;
 }
+.sweetX {
+  animation: sweetX 0.35s forwards;
+}
+@keyframes sweetX {
+  0% {
+    opacity: 0.95;
+    transform: translateX(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

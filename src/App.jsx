@@ -27,14 +27,10 @@ function App() {
             </TooltipComponent>
           </div>
           {activeMenu ? (
-            <div className="w-72 sidebar fixed dark:bg-secondary-dark-bg bg-white">
+            <div className="sweetX w-72 sidebar fixed dark:bg-secondary-dark-bg bg-white">
               <Sidebar />
             </div>
-          ) : (
-            <div className="w-0 dark:bg-secondary-dark-bg">
-              <Sidebar />
-            </div>
-          )}
+          ) : null}
           <div
             className={`dark:bg-main-bg bg-main-bg min-h-screen  w-full ${
               activeMenu ? "md:ml-72" : "flex-2"
