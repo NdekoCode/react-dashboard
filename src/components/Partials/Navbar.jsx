@@ -5,6 +5,7 @@ import { BsChatLeft } from "react-icons/bs";
 import { FiShoppingCart } from "react-icons/fi";
 import { RiNotification3Line } from "react-icons/ri";
 import StateContext from "../../libs/context/AppContext";
+import UserStateContext from "../../libs/context/UserInteractionContext";
 import avatar from "../../libs/data/images/avatar.jpg";
 const NavButton = ({ title, customFunc, icon, color, dotColor }) => {
   return (
@@ -31,7 +32,10 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => {
 };
 const Navbar = () => {
   const { toggleMenu } = StateContext();
-  const handleClick = (value) => {};
+  const { toggleIsClicked } = UserStateContext();
+  const handleClick = (value) => {
+    toggleIsClicked(value);
+  };
 
   return (
     <nav className="flex justify-between p-2 md:ml-6 md:mr-6 relative">

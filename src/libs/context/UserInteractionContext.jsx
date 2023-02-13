@@ -2,23 +2,21 @@ import { createContext, memo, useContext, useMemo, useState } from "react";
 
 const UserStateInit = createContext();
 export const UserStateContextProvider = memo(({ children }) => {
-  const [userInteraction, setUserInteraction] = useState({
+  const [isClicked, setIsClicked] = useState({
     chat: false,
     cart: false,
     userProfile: false,
     notification: false,
   });
-  const toggleUserInteraction = (state) => {
-    if (Object.keys(userInteraction).includes(state)) {
-      setUserInteraction((d) => ({ [state]: !d[state] }));
+  const toggleIsClicked = (state) => {
+    if (Object.keys(isClicked).includes(state)) {
+      setIsClicked((d) => ({ ...d, [state]: !d[state] }));
+      console.log(isClicked);
     }
   };
   const initialState = useMemo(
-    () => ({
-      userInteraction,
-      toggleUserInteraction,
-    }),
-    []
+    () => ({ isClicked, toggleIsClicked }),
+    [isClicked]
   );
   return (
     <UserStateInit.Provider value={initialState}>
