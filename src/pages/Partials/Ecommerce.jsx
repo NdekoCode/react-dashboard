@@ -1,18 +1,17 @@
 import React from "react";
 import { GoPrimitiveDot } from "react-icons/go";
-import { Button } from "../../components/components";
-import { earningData } from "../../libs/data/dummy";
+import { Button, SparkLine } from "../../components/components";
+import { earningData, SparklineAreaData } from "../../libs/data/dummy";
 
 function Ecommerce() {
   return (
     <div className="mt-5">
       <div className="flex flex-wrap lg:flex-nowrap justify-center">
+        {/* Earning */}
         <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-44 rounded-xl w-full lg:w-80 p-5  m-3 bg-hero-pattern bg-no-repeat bg-cover bg-center">
-          <div className="flex justify-between items-center">
-            <div>
-              <p className="font-bold text-gray-400">Earnings</p>
-              <p className="text-2xl">$63, 448,78</p>
-            </div>
+          <div>
+            <p className="font-bold text-gray-400">Earnings</p>
+            <p className="text-2xl">$63, 448,78</p>
           </div>
           <div className="mt-6">
             <Button
@@ -20,12 +19,13 @@ function Ecommerce() {
               bgColor="blue"
               borderRadius="10px"
               size="md"
-              className="p-3 hover:drop-shadow-xl"
+              className="px-3 py-2 hover:drop-shadow-xl"
             >
               Download
             </Button>
           </div>
         </div>
+        {/* Dashboard main Data */}
         <div className="flex m-3 flex-wrap justify-center gap-2 items-center">
           {earningData.map((item, index) => (
             <div
@@ -89,6 +89,17 @@ function Ecommerce() {
                   <span className="text-3xl font-semibold">$48, 438</span>
                 </p>
                 <p className="text-gray-500 mt-1">Expense</p>
+              </div>
+              <div className="mt-5">
+                <SparkLine
+                  currentColor="blue"
+                  id="line-sparkline"
+                  type="Line"
+                  height="80px"
+                  width="80px"
+                  color="blue"
+                  data={SparklineAreaData}
+                />
               </div>
             </div>
           </div>
