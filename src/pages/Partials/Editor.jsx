@@ -1,7 +1,7 @@
 import React from "react";
 
 function Editor() {
-  return <div>Editor</div>;
+  return <div className="FadeAp">Editor</div>;
 }
 
 export default Editor;

@@ -17,7 +17,7 @@ import { customersData, customersGrid } from "../../libs/data/dummy";
 
 function Customers() {
   return (
-    <div className="m-2 p-2 md:p-10 md:m-10 bg-white rounded-3xl">
+    <div className="FadeAp m-2 p-2 md:p-10 md:m-10 bg-white rounded-3xl">
       <Header category="Page" title="Customers" />
       <GridComponent
         allowPaging

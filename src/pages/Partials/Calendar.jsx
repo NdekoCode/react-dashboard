@@ -13,7 +13,7 @@ import React from "react";
 import { scheduleData } from "../../libs/data/dummy";
 function Calendar() {
   return (
-    <div className="m-2 p-2 md:m-10 md:p-10 mt-20 bg-white rounded-3xl">
+    <div className="FadeAp m-2 p-2 md:m-10 md:p-10 mt-20 bg-white rounded-3xl">
       <ScheduleComponent
         height="650px"
         eventSettings={{
