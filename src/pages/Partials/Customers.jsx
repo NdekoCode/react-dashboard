@@ -2,10 +2,13 @@ import {
   ColumnDirective,
   ColumnsDirective,
   Edit,
+  Filter,
   GridComponent,
   Inject,
   Page,
   Search,
+  Selection,
+  Sort,
   Toolbar,
 } from "@syncfusion/ej2-react-grids";
 import React from "react";
@@ -20,7 +23,8 @@ function Customers() {
         allowPaging
         allowSorting
         dataSource={customersData}
-        toolbar={["Search"]}
+        toolbar={["Search", "Delete", "Edit"]}
+        editSettings={{ allowDeleting: true, allowEditing: true }}
         width="auto"
       >
         <ColumnsDirective>
@@ -28,7 +32,9 @@ function Customers() {
             <ColumnDirective key={index} {...custom} />
           ))}
         </ColumnsDirective>
-        <Inject services={[Page, Edit, Search, Toolbar]} />
+        <Inject
+          services={[Page, Edit, Search, Filter, Sort, Selection, Toolbar]}
+        />
       </GridComponent>
     </div>
   );
