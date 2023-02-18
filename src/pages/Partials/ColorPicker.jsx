@@ -1,6 +1,9 @@
 import { ColorPickerComponent } from "@syncfusion/ej2-react-inputs";
 import React from "react";
 import { Header } from "../../components/components";
+const changeColor = (args, id = "preview") => {
+  document.getElementById(id).style.backgroundColor = args.currentValue.hex;
+};
 function ColorPicker() {
   return (
     <div className="FadeAp m-2 p-2 md:m-10 md:p-10 rounded-3xl bg-white">
@@ -16,6 +19,7 @@ function ColorPicker() {
               modeSwitcher={false}
               inline
               showButtons={false}
+              change={changeColor}
             />
           </div>
           <div>
@@ -26,6 +30,7 @@ function ColorPicker() {
               modeSwitcher={false}
               inline
               showButtons={false}
+              change={changeColor}
             />
           </div>
         </div>
