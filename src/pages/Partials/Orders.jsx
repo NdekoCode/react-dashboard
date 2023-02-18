@@ -10,7 +10,9 @@ import {
   Page,
   PdfExport,
   Resize,
+  Search,
   Sort,
+  Toolbar,
 } from "@syncfusion/ej2-react-grids";
 import React from "react";
 import { Header } from "../../components/components";
@@ -25,6 +27,8 @@ const Orders = () => {
         dataSource={ordersData}
         allowPaging
         allowSorting
+        toolbar={["Search"]}
+        width="auto"
       >
         <ColumnsDirective>
           {ordersGrid.map((order, index) => (
@@ -41,6 +45,8 @@ const Orders = () => {
             ExcelExport,
             PdfExport,
             Edit,
+            Search,
+            Toolbar,
           ]}
         />
       </GridComponent>
