@@ -40,7 +40,7 @@ const Navbar = () => {
   const { chat, cart, userProfile, notification } = isClicked;
 
   return (
-    <nav className="flex justify-between p-2 md:ml-6 md:mr-6 relative">
+    <nav className="flex justify-between p-2 md:ml-5 md:mr-5 relative">
       <NavButton
         title="Menu"
         customFunc={toggleMenu}

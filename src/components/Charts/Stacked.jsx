@@ -19,6 +19,7 @@ const Stacked = ({ width, height }) => {
   return (
     <div>
       <ChartComponent
+        className="transition-colors"
         width={width}
         height={height}
         id="charts"
