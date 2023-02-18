@@ -19,9 +19,10 @@ const Stacked = ({ width, height }) => {
   return (
     <div>
       <ChartComponent
+        className="transition-colors"
         width={width}
         height={height}
-        id="stark chart"
+        id="charts"
         primaryXAxis={stackedPrimaryXAxis}
         primaryYAxis={stackedPrimaryYAxis}
         chartArea={{
