@@ -22,7 +22,7 @@ const ThemeSettings = () => {
           <button
             type="button"
             className="text-2xl rounded-full p-2 hover:drop-shadow-xl hover:bg-light-gray"
-            onClick={() => setThemeSettings()}
+            onClick={setThemeSettings}
             style={{ color: "rgba(153,171,180)" }}
           >
             <MdOutlineCancel />
@@ -36,8 +36,8 @@ const ThemeSettings = () => {
               name="theme"
               id="light"
               value="Light"
-              onChange={() => {}}
-              checked={true}
+              onChange={setMode}
+              checked={currentMode === "Light"}
               className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
             />
             <label htmlFor="light" className="ml-2 text-md cursor-pointer">
@@ -50,8 +50,8 @@ const ThemeSettings = () => {
               name="theme"
               id="dark"
               value="Dark"
-              onChange={() => {}}
-              checked={true}
+              onChange={setMode}
+              checked={currentMode === "Dark"}
               className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
             />
             <label htmlFor="dark" className="ml-2 text-md cursor-pointer">
@@ -78,11 +78,6 @@ const ThemeSettings = () => {
                     }}
                     onClick={() => {
                       setColor(theme.color);
-                      console.log(
-                        currentColor === theme.color,
-                        currentColor,
-                        theme.color
-                      );
                     }}
                   >
                     <BsCheck

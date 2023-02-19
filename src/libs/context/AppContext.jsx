@@ -13,15 +13,22 @@ const StateContextInit = createContext();
 export const StateContextProvider = memo(({ children }) => {
   const [activeMenu, toggleMenu] = useToggle(true);
   const [themeSettings, setThemeSettings] = useToggle(false);
-  const [currentColor, setCurrentColor] = useState("#03C9D7");
-  const [currentMode, setCurrentMode] = useState("Light");
+  const [currentColor, setCurrentColor] = useState(
+    localStorage.getItem("color") || "#03C9D7"
+  );
+  const [currentMode, setCurrentMode] = useState(
+    localStorage.getItem("theme") || "Light"
+  );
   const setMode = (e) => {
     setCurrentMode(e.target.value);
     localStorage.setItem("theme", e.target.value);
+
+    setThemeSettings(false);
   };
   const setColor = (value) => {
     setCurrentColor(value);
     localStorage.setItem("color", value);
+    setThemeSettings(false);
   };
   const [screenSize, handleSize] = useResize();
   const handleCloseSideBar = useCallback(() => {

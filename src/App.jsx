@@ -9,8 +9,8 @@ import { UserStateContextProvider } from "./libs/context/UserInteractionContext"
 import routes from "./libs/routes/routes";
 
 function App() {
-  const { activeMenu, themeSettings, setThemeSettings } = StateContext();
-
+  const { activeMenu, themeSettings, currentColor, setThemeSettings } =
+    StateContext();
   return (
     <div>
       <BrowserRouter>
@@ -20,7 +20,7 @@ function App() {
               <button
                 type="button"
                 className="text-3xl p-3 hover:drop-shadow-xl rounded-full transition-colors text-white hover:bg-light-gray"
-                style={{ backgroundColor: "blue" }}
+                style={{ backgroundColor: currentColor }}
                 onClick={setThemeSettings}
               >
                 <FiSettings />

@@ -1,9 +1,11 @@
 import React from "react";
 import { GoPrimitiveDot } from "react-icons/go";
 import { Button, SparkLine, Stacked } from "../../components/components";
+import StateContext from "../../libs/context/AppContext";
 import { earningData, SparklineAreaData } from "../../libs/data/dummy";
 
 function Ecommerce() {
+  const { currentColor } = StateContext();
   return (
     <div className="FadeAp mt-5">
       <div className="flex flex-wrap lg:flex-nowrap justify-center">
@@ -16,7 +18,7 @@ function Ecommerce() {
           <div className="mt-6">
             <Button
               color="white"
-              bgColor="blue"
+              bgColor={currentColor}
               borderRadius="10px"
               size="md"
               className="px-3 py-2 hover:drop-shadow-xl"
@@ -92,19 +94,19 @@ function Ecommerce() {
               </div>
               <div className="mt-5">
                 <SparkLine
-                  currentColor="blue"
+                  currentColor={currentColor}
                   id="line-sparkline"
                   type="Line"
                   height="80px"
                   width="80px"
-                  color="blue"
+                  color={currentColor}
                   data={SparklineAreaData}
                 />
               </div>
               <div className="mt-10">
                 <Button
                   color="white"
-                  bgColor="blue"
+                  bgColor={currentColor}
                   className="px-3 py-2"
                   borderRadius="5px"
                 >
