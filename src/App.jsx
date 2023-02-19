@@ -3,7 +3,7 @@ import React from "react";
 import { FiSettings } from "react-icons/fi";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import { Navbar, Sidebar } from "./components/components";
+import { Navbar, Sidebar, ThemeSettings } from "./components/components";
 import StateContext from "./libs/context/AppContext";
 import { UserStateContextProvider } from "./libs/context/UserInteractionContext";
 import routes from "./libs/routes/routes";
@@ -47,6 +47,7 @@ function App() {
 
             {/* Main content START */}
             <main>
+              <ThemeSettings />
               <Routes>
                 {routes.map(({ path, component }, index) => (
                   <Route key={index} path={path} element={component} />
