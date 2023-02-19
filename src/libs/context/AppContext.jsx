@@ -19,9 +19,9 @@ export const StateContextProvider = memo(({ children }) => {
     setCurrentMode(e.target.value);
     localStorage.setItem("theme", e.target.value);
   };
-  const setColor = (e) => {
-    setCurrentColor(e.target.value);
-    localStorage.setItem("color", e.target.value);
+  const setColor = (value) => {
+    setCurrentColor(value);
+    localStorage.setItem("color", value);
   };
   const [screenSize, handleSize] = useResize();
   const handleCloseSideBar = useCallback(() => {
