@@ -9,7 +9,7 @@ import StateContext from "../../libs/context/AppContext";
 import { links } from "../../libs/data/dummy";
 
 const Sidebar = () => {
-  const { handleCloseSideBar } = StateContext();
+  const { handleCloseSideBar, currentColor } = StateContext();
   const activeLink =
     "flex items-center gap-5 pl-3 py-2.5 rounded-lg text-white text-md m-2 transition-colors bg-gray-900";
   const normalLink =
@@ -45,8 +45,11 @@ const Sidebar = () => {
                   <NavLink
                     to={`/${item.name}`}
                     onClick={handleCloseSideBar}
-                    className={(nav) =>
-                      nav.isActive ? activeLink : normalLink
+                    className={({ isActive }) =>
+                      isActive ? activeLink : normalLink
+                    }
+                    style={({ isActive }) =>
+                      isActive ? { backgroundColor: currentColor } : {}
                     }
                   >
                     {item.icon}

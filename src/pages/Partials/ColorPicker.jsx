@@ -1,10 +1,15 @@
 import { ColorPickerComponent } from "@syncfusion/ej2-react-inputs";
 import React from "react";
 import { Header } from "../../components/components";
+import StateContext from "../../libs/context/AppContext";
 const changeColor = (args, id = "preview") => {
   document.getElementById(id).style.backgroundColor = args.currentValue.hex;
 };
 function ColorPicker() {
+  const { setColor } = StateContext();
+  const changIt = (arg) => {
+    setColor(arg.currentValue.hex, false);
+  };
   return (
     <div className="FadeAp m-2 p-2 md:m-10 md:p-10 rounded-3xl bg-white">
       <Header category="App" title="Color Picker" />
@@ -19,7 +24,10 @@ function ColorPicker() {
               modeSwitcher={false}
               inline
               showButtons={false}
-              change={changeColor}
+              change={(e) => {
+                changeColor(e);
+                changIt(e);
+              }}
             />
           </div>
           <div>
@@ -30,7 +38,10 @@ function ColorPicker() {
               modeSwitcher={false}
               inline
               showButtons={false}
-              change={changeColor}
+              change={(e) => {
+                changeColor(e);
+                changIt(e);
+              }}
             />
           </div>
         </div>

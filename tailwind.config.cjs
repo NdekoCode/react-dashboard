@@ -5,6 +5,7 @@ module.exports = {
   safelist: [
     "text-2xl",
     "text-3xl",
+    "bg-[]",
     {
       pattern: /text-(red|green|blue)-(100|200|300|500|600|700|800|900)/,
       variants: ["lg", "hover", "focus", "lg:hover"],

@@ -9,10 +9,15 @@ import { UserStateContextProvider } from "./libs/context/UserInteractionContext"
 import routes from "./libs/routes/routes";
 
 function App() {
-  const { activeMenu, themeSettings, setThemeSettings } = StateContext();
-
+  const {
+    activeMenu,
+    themeSettings,
+    currentColor,
+    setThemeSettings,
+    currentMode,
+  } = StateContext();
   return (
-    <div>
+    <div className={currentMode === "Dark" ? "dark" : ""}>
       <BrowserRouter>
         <section className="flex relative dark:bg-main-dark-bg">
           <div className="fixed right-4 bottom-4" style={{ zIndex: "1000" }}>
@@ -20,7 +25,7 @@ function App() {
               <button
                 type="button"
                 className="text-3xl p-3 hover:drop-shadow-xl rounded-full transition-colors text-white hover:bg-light-gray"
-                style={{ backgroundColor: "blue" }}
+                style={{ backgroundColor: currentColor }}
                 onClick={setThemeSettings}
               >
                 <FiSettings />
@@ -33,7 +38,7 @@ function App() {
             </div>
           ) : null}
           <section
-            className={`dark:bg-main-bg bg-main-bg min-h-screen  w-full ${
+            className={`dark:bg-main-dark-bg bg-main-bg min-h-screen  w-full ${
               activeMenu ? "md:ml-64" : "flex-2"
             }`}
           >

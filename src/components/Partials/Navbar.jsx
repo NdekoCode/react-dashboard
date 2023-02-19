@@ -22,8 +22,8 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => {
       <button
         type="button"
         onClick={customFunc}
-        style={{ color }}
         className="relative text-xl rounded-full p-3 hover:bg-light-gray"
+        style={{ color }}
       >
         <span
           style={{ backgroundColor: dotColor }}
@@ -35,7 +35,7 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => {
   );
 };
 const Navbar = () => {
-  const { toggleMenu } = StateContext();
+  const { toggleMenu, currentColor } = StateContext();
   const { isClicked, toggleIsClicked } = UserStateContext();
   const { chat, cart, userProfile, notification } = isClicked;
 
@@ -44,27 +44,27 @@ const Navbar = () => {
       <NavButton
         title="Menu"
         customFunc={toggleMenu}
-        color="blue"
+        color={currentColor}
         icon={<AiOutlineMenu />}
       />
       <div className="flex">
         <NavButton
           title="Cart"
           customFunc={() => toggleIsClicked("cart")}
-          color="blue"
+          color={currentColor}
           icon={<FiShoppingCart />}
         />
         <NavButton
           title="Chat"
           customFunc={() => toggleIsClicked("chat")}
-          color="blue"
+          color={currentColor}
           dotColor="#03c9d7"
           icon={<BsChatLeft />}
         />
         <NavButton
           title="Notification"
           customFunc={() => toggleIsClicked("notification")}
-          color="blue"
+          color={currentColor}
           dotColor="#03c9d7"
           icon={<RiNotification3Line />}
         />
