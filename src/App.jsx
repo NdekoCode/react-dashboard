@@ -3,25 +3,25 @@ import React from "react";
 import { FiSettings } from "react-icons/fi";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import { Navbar, Sidebar } from "./components/components";
+import { Navbar, Sidebar, ThemeSettings } from "./components/components";
 import StateContext from "./libs/context/AppContext";
 import { UserStateContextProvider } from "./libs/context/UserInteractionContext";
 import routes from "./libs/routes/routes";
 
 function App() {
-  const { activeMenu } = StateContext();
+  const { activeMenu, themeSettings, setThemeSettings } = StateContext();
 
   return (
     <div>
       <BrowserRouter>
         <section className="flex relative dark:bg-main-dark-bg">
           <div className="fixed right-4 bottom-4" style={{ zIndex: "1000" }}>
-            <TooltipComponent content="settng" position="Top">
+            <TooltipComponent content="setting" position="Top">
               <button
                 type="button"
                 className="text-3xl p-3 hover:drop-shadow-xl rounded-full transition-colors text-white hover:bg-light-gray"
                 style={{ backgroundColor: "blue" }}
-                onClick={() => {}}
+                onClick={setThemeSettings}
               >
                 <FiSettings />
               </button>
@@ -47,6 +47,7 @@ function App() {
 
             {/* Main content START */}
             <main>
+              {themeSettings && <ThemeSettings />}
               <Routes>
                 {routes.map(({ path, component }, index) => (
                   <Route key={index} path={path} element={component} />
