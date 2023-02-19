@@ -10,11 +10,11 @@ const ThemeSettings = () => {
     StateContext();
   return (
     <div
-      className="bg-half-transparent w-screen fixed nav-item top-0 right-0"
+      className="Fade bg-half-transparent w-screen fixed nav-item top-0 right-0"
       onClick={setThemeSettings}
     >
       <div
-        className="float-right h-screen dark:text-gray-200 bg-white dark:[#484B52] w-400"
+        className="float-right sweetXReverse h-screen dark:text-gray-200 bg-white dark:[#484B52] w-400"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center justify-between p-4 ml-4">

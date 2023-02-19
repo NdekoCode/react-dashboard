@@ -57,13 +57,31 @@
   animation: sweetX 0.35s forwards;
 }
 
+.sweetXReverse {
+  animation: sweetXReverse 0.35s forwards;
+}
+
 .FadeAp {
   animation: FadeAp 0.35s forwards;
+}
+
+.Fade {
+  animation: Fade 0.35s forwards;
 }
 @keyframes sweetX {
   0% {
     opacity: 0;
     transform: translateX(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes sweetXReverse {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
   }
   100% {
     opacity: 1;
@@ -78,5 +96,14 @@
   100% {
     opacity: 1;
     transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes Fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
