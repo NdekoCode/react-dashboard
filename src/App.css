@@ -56,6 +56,10 @@
 .sweetX {
   animation: sweetX 0.35s forwards;
 }
+
+.FadeAp {
+  animation: FadeAp 0.35s forwards;
+}
 @keyframes sweetX {
   0% {
     opacity: 0;
@@ -64,5 +68,15 @@
   100% {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+@keyframes FadeAp {
+  0% {
+    opacity: 0;
+    transform: scale(0.999) translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
   }
 }
