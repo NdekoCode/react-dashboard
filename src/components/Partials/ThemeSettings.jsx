@@ -2,9 +2,18 @@ import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import React from "react";
 import { BsCheck } from "react-icons/bs";
 import { MdOutlineCancel } from "react-icons/md";
+import StateContext from "../../libs/context/AppContext";
 import { themeColors } from "../../libs/data/dummy";
 
 const ThemeSettings = () => {
+  const {
+    currentColor,
+    toggleColor,
+    setColor,
+    setMode,
+    currentMode,
+    setThemeSettings,
+  } = StateContext();
   return (
     <div className="bg-half-transparent w-screen fixed nav-item top-0 right-0">
       <div className="float-right h-screen dark:text-gray-200 bg-white dark:[#484B52] w-400">
@@ -67,11 +76,18 @@ const ThemeSettings = () => {
                     style={{
                       backgroundColor: theme.color,
                     }}
-                    onClick={() => {}}
+                    onClick={() => {
+                      toggleColor(theme.color);
+                      console.log(
+                        currentColor === theme.color,
+                        currentColor,
+                        theme.color
+                      );
+                    }}
                   >
                     <BsCheck
                       className={`ml-2 text-2xl  text-white ${
-                        true ? "block" : "hidden"
+                        currentColor === theme.color ? "block" : "hidden"
                       }`}
                     />
                   </button>

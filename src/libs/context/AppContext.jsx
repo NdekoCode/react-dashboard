@@ -5,12 +5,29 @@ import {
   useContext,
   useLayoutEffect,
   useMemo,
+  useState,
 } from "react";
 import { useResize, useToggle } from "../hooks/basicsHooks";
 
 const StateContextInit = createContext();
 export const StateContextProvider = memo(({ children }) => {
   const [activeMenu, toggleMenu] = useToggle(true);
+  const [currentColor, setCurrentColor] = useState("#03C9D7");
+  const [currentMode, setCurrentMode] = useState("Light");
+  const setMode = (e) => {
+    setCurrentMode(e.target.value);
+    localStorage.setItem("theme", e.target.value);
+  };
+  const setColor = (e) => {
+    setCurrentColor(e.target.value);
+    localStorage.setItem("color", e.target.value);
+  };
+  const toggleColor = (value) => {
+    setCurrentColor(value);
+    setCurrentColor("Num");
+
+    console.log(value, currentColor);
+  };
   const [screenSize, handleSize] = useResize();
   const handleCloseSideBar = useCallback(() => {
     if (activeMenu && screenSize <= 900) {
@@ -24,6 +41,8 @@ export const StateContextProvider = memo(({ children }) => {
       screenSize,
       handleSize,
       handleCloseSideBar,
+      currentColor,
+      toggleColor,
     }),
     [activeMenu, screenSize]
   );
