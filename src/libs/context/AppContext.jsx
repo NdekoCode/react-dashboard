@@ -25,10 +25,12 @@ export const StateContextProvider = memo(({ children }) => {
 
     setThemeSettings(false);
   };
-  const setColor = (value) => {
+  const setColor = (value, toggle = true) => {
     setCurrentColor(value);
     localStorage.setItem("color", value);
-    setThemeSettings(false);
+    if (toggle) {
+      setThemeSettings(false);
+    }
   };
   const [screenSize, handleSize] = useResize();
   const handleCloseSideBar = useCallback(() => {
