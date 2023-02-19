@@ -18,7 +18,7 @@ const ThemeSettings = () => {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center justify-between p-4 ml-4">
-          <h4 className="font-semibold text-xl">Settings</h4>
+          <h4 className="font-semibold text-xl dark:text-gray-500">Settings</h4>
           <button
             type="button"
             className="text-2xl rounded-full p-2 hover:drop-shadow-xl hover:bg-light-gray"
@@ -29,7 +29,9 @@ const ThemeSettings = () => {
           </button>
         </div>
         <div className="border-t-1 border-color p-4 ml-4">
-          <h5 className="font-semibold text-lg">Theme Options</h5>
+          <h5 className="font-semibold text-lg dark:text-gray-500">
+            Theme Options
+          </h5>
           <div className="mt-4">
             <input
               type="radio"
@@ -40,7 +42,10 @@ const ThemeSettings = () => {
               checked={currentMode === "Light"}
               className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
             />
-            <label htmlFor="light" className="ml-2 text-md cursor-pointer">
+            <label
+              htmlFor="light"
+              className="ml-2 dark:text-gray-400 text-md cursor-pointer"
+            >
               Light
             </label>
           </div>
@@ -54,14 +59,19 @@ const ThemeSettings = () => {
               checked={currentMode === "Dark"}
               className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
             />
-            <label htmlFor="dark" className="ml-2 text-md cursor-pointer">
+            <label
+              htmlFor="dark"
+              className="ml-2 dark:text-gray-400 text-md cursor-pointer"
+            >
               Dark
             </label>
           </div>
         </div>
 
         <div className="flex-col items-center justify-between p-4 ml-4">
-          <h4 className="font-semibold text-xl">Theme colors</h4>
+          <h4 className="font-semibold text-xl dark:text-gray-500">
+            Theme colors
+          </h4>
           <div className="flex flex-wrap gap-3">
             {themeColors.map((theme, index) => (
               <TooltipComponent

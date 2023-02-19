@@ -45,11 +45,11 @@ const Sidebar = () => {
                   <NavLink
                     to={`/${item.name}`}
                     onClick={handleCloseSideBar}
-                    className={(nav) =>
-                      nav.isActive ? activeLink : normalLink
+                    className={({ isActive }) =>
+                      isActive ? activeLink : normalLink
                     }
-                    style={(nav) =>
-                      nav.isActive ? { backgroundColor: currentColor } : {}
+                    style={({ isActive }) =>
+                      isActive ? { backgroundColor: currentColor } : {}
                     }
                   >
                     {item.icon}
