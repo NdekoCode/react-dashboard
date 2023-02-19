@@ -23,9 +23,6 @@ export const StateContextProvider = memo(({ children }) => {
     setCurrentColor(e.target.value);
     localStorage.setItem("color", e.target.value);
   };
-  const toggleColor = (value) => {
-    setCurrentColor(value);
-  };
   const [screenSize, handleSize] = useResize();
   const handleCloseSideBar = useCallback(() => {
     if (activeMenu && screenSize <= 900) {
@@ -46,7 +43,7 @@ export const StateContextProvider = memo(({ children }) => {
       themeSettings,
       setThemeSettings,
     }),
-    [activeMenu, screenSize]
+    [activeMenu, screenSize, currentColor, currentMode, themeSettings]
   );
   useLayoutEffect(() => {
     toggleMenu(true);
