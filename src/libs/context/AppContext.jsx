@@ -12,6 +12,7 @@ import { useResize, useToggle } from "../hooks/basicsHooks";
 const StateContextInit = createContext();
 export const StateContextProvider = memo(({ children }) => {
   const [activeMenu, toggleMenu] = useToggle(true);
+  const [themeSettings, setThemeSettings] = useToggle(false);
   const [currentColor, setCurrentColor] = useState("#03C9D7");
   const [currentMode, setCurrentMode] = useState("Light");
   const setMode = (e) => {
@@ -24,9 +25,6 @@ export const StateContextProvider = memo(({ children }) => {
   };
   const toggleColor = (value) => {
     setCurrentColor(value);
-    setCurrentColor("Num");
-
-    console.log(value, currentColor);
   };
   const [screenSize, handleSize] = useResize();
   const handleCloseSideBar = useCallback(() => {
@@ -42,7 +40,11 @@ export const StateContextProvider = memo(({ children }) => {
       handleSize,
       handleCloseSideBar,
       currentColor,
-      toggleColor,
+      currentMode,
+      setMode,
+      setColor,
+      themeSettings,
+      setThemeSettings,
     }),
     [activeMenu, screenSize]
   );

@@ -6,14 +6,8 @@ import StateContext from "../../libs/context/AppContext";
 import { themeColors } from "../../libs/data/dummy";
 
 const ThemeSettings = () => {
-  const {
-    currentColor,
-    toggleColor,
-    setColor,
-    setMode,
-    currentMode,
-    setThemeSettings,
-  } = StateContext();
+  const { currentColor, setColor, setMode, currentMode, setThemeSettings } =
+    StateContext();
   return (
     <div className="bg-half-transparent w-screen fixed nav-item top-0 right-0">
       <div className="float-right h-screen dark:text-gray-200 bg-white dark:[#484B52] w-400">
@@ -22,7 +16,7 @@ const ThemeSettings = () => {
           <button
             type="button"
             className="text-2xl rounded-full p-2 hover:drop-shadow-xl hover:bg-light-gray"
-            onClick={() => {}}
+            onClick={() => setThemeSettings()}
             style={{ color: "rgba(153,171,180)" }}
           >
             <MdOutlineCancel />
@@ -77,7 +71,7 @@ const ThemeSettings = () => {
                       backgroundColor: theme.color,
                     }}
                     onClick={() => {
-                      toggleColor(theme.color);
+                      setColor(theme.color);
                       console.log(
                         currentColor === theme.color,
                         currentColor,
