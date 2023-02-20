@@ -1,4 +1,4 @@
-import { createContext, memo, useContext, useState } from "react";
+import { createContext, memo, useContext, useMemo, useState } from "react";
 
 const UserStateInit = createContext();
 export const UserStateContextProvider = memo(({ children }) => {
@@ -35,7 +35,10 @@ export const UserStateContextProvider = memo(({ children }) => {
       }
     }
   };
-  const initialState = { isClicked, toggleIsClicked };
+  const initialState = useMemo(
+    () => ({ isClicked, toggleIsClicked }),
+    [isClicked]
+  );
   return (
     <UserStateInit.Provider value={initialState}>
       {children}
