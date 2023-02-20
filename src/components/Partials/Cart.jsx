@@ -3,11 +3,13 @@ import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { MdOutlineCancel } from "react-icons/md";
 
 import StateContext from "../../libs/context/AppContext";
+import UserStateContext from "../../libs/context/UserInteractionContext";
 import { cartData } from "../../libs/data/dummy";
 import Button from "./Button";
 
 const Cart = ({ close }) => {
   const { currentColor } = StateContext();
+  const { toggleIsClicked } = UserStateContext();
   const stop = (e) => e.stopPropagation();
 
   return (
@@ -25,7 +27,7 @@ const Cart = ({ close }) => {
             color="rgb(153, 171, 180)"
             bgHoverColor="light-gray"
             size="2xl"
-            onClick={close}
+            onClick={() => toggleIsClicked("cart", false)}
             borderRadius="50%"
           >
             <MdOutlineCancel />

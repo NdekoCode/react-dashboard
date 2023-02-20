@@ -26,7 +26,7 @@ const Chat = () => {
           color="rgb(153, 171, 180)"
           bgHoverColor="light-gray"
           size="2xl"
-          onClick={() => toggleIsClicked("chat")}
+          onClick={() => toggleIsClicked("chat", false)}
           borderRadius="50%"
         >
           <MdOutlineCancel />
