@@ -1,4 +1,4 @@
-import { createContext, memo, useContext, useMemo, useState } from "react";
+import { createContext, memo, useContext, useState } from "react";
 
 const UserStateInit = createContext();
 export const UserStateContextProvider = memo(({ children }) => {
@@ -11,6 +11,7 @@ export const UserStateContextProvider = memo(({ children }) => {
 
   // Va permettre de de desactiver de maniere independante les modales d'interactions utilisateurs.
   const toggleIsClicked = (state, value = null, dependant = true) => {
+    console.log(isClicked);
     if (Object.keys(isClicked).includes(state)) {
       if (typeof value === "boolean") {
         setIsClicked((d) => ({ ...d, [state]: value }));
@@ -34,10 +35,7 @@ export const UserStateContextProvider = memo(({ children }) => {
       }
     }
   };
-  const initialState = useMemo(
-    () => ({ isClicked, toggleIsClicked }),
-    [isClicked]
-  );
+  const initialState = { isClicked, toggleIsClicked };
   return (
     <UserStateInit.Provider value={initialState}>
       {children}

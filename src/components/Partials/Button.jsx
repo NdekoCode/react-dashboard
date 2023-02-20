@@ -10,8 +10,10 @@ const Button = ({
   children,
   className,
   size,
+  onClick,
 }) => (
   <button
+    onClick={onClick}
     className={`${className} text-${size}`}
     style={{ color, borderRadius, backgroundColor: bgColor }}
     type={type}

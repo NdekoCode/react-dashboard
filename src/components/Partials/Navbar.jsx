@@ -85,10 +85,14 @@ const Navbar = () => {
             <MdKeyboardArrowDown />
           </div>
         </TooltipComponent>
-        {chat && <Chat />}
-        {notification && <Notification />}
-        {userProfile && <UserProfile />}
-        {cart && <Cart />}
+        {chat && <Chat close={() => toggleIsClicked("chat")} />}
+        {notification && (
+          <Notification close={() => toggleIsClicked("notification")} />
+        )}
+        {userProfile && (
+          <UserProfile close={() => toggleIsClicked("userProfile")} />
+        )}
+        {cart && <Cart close={() => toggleIsClicked("chat")} />}
       </div>
     </nav>
   );
