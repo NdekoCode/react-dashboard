@@ -11,8 +11,9 @@ export const UserStateContextProvider = memo(({ children }) => {
 
   // Va permettre de de desactiver de maniere independante les modales d'interactions utilisateurs.
   const toggleIsClicked = (state, value = null, dependant = true) => {
+    console.log(isClicked);
     if (Object.keys(isClicked).includes(state)) {
-      if (typeof value === "boolean") {
+      if (value) {
         setIsClicked((d) => ({ ...d, [state]: value }));
       } else {
         if (dependant) {
