@@ -13,7 +13,7 @@ export const UserStateContextProvider = memo(({ children }) => {
   const toggleIsClicked = (state, value = null, dependant = true) => {
     console.log(isClicked);
     if (Object.keys(isClicked).includes(state)) {
-      if (typeof value === "boolean") {
+      if (value) {
         setIsClicked((d) => ({ ...d, [state]: value }));
       } else {
         if (dependant) {

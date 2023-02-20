@@ -16,7 +16,7 @@ const Cart = ({ close }) => {
       onClick={close}
     >
       <div
-        className="float-right h-screen  duration-1000 ease-in-out dark:text-gray-200 transition-all dark:bg-[#484B52] bg-white md:w-400 p-8"
+        className="sweetY float-right h-screen  duration-1000 ease-in-out dark:text-gray-200 transition-all dark:bg-[#484B52] bg-white md:w-400 p-8"
         onClick={stop}
       >
         <div className="flex justify-between items-center">
