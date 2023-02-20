@@ -15,7 +15,7 @@ const Cart = ({ close }) => {
   return (
     <div
       className="Fade bg-half-transparent w-full fixed nav-item top-0 right-0 "
-      onClick={close}
+      onClick={() => toggleIsClicked("cart", false)}
     >
       <div
         className="sweetY float-right h-screen  duration-1000 ease-in-out dark:text-gray-200 transition-all dark:bg-[#484B52] bg-white md:w-400 p-8"
